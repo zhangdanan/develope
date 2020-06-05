@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.chzu.smart.home.dao.BedInfoDao">
+    
+  <resultMap id="bedInfo" type="cn.edu.chzu.smart.home.domain.BedInfo">
+      <id column="fileNo" property="fileNo"/>
+      <result column="bedNo" property="bedNo"></result>
+      <result column="floorNo" property="floorNo"></result>
+      <result column="roomNo" property="roomNo"></result>
+      <result column="roomType" property="roomType"/>
+      <result column="nursingType" property="nursingType"/>
+    <association property="user" javaType="cn.edu.chzu.smart.home.domain.UserBasicInfo">
+        <id column="fileNo" property="fileNo"></id>
+        <result column="userName" property="userName"/>
+    </association>
+  </resultMap>
+    
+    <select id="selectBedInfoList" resultType="cn.edu.chzu.smart.home.domain.BedInfo">
+        select * from facility_bed_info,facility_user_basic_info_tb
+        where facility_bed_info.fileNo=facility_user_basic_info_tb.fileNo
+    </select>
+    
+</mapper>

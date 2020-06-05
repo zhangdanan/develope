@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.chzu.smart.home.dao.DeviceInfoDao">
+    
+    <resultMap id="device" type="cn.edu.chzu.smart.home.domain.DeviceInfo">
+        <result column="deviceNo" property="deviceNo"/>
+        <result column="deviceMajorCategory" property="deviceMajorCategory"/>
+        <result column="deviceSubCategory" property="deviceSubCategory"/>
+        <result column="deviceProperty" property="deviceProperty"/>
+        <result column="simNo" property="simNo"/>
+        <result column="deviceOnlineStatus" property="deviceOnlineStatus"/>
+        <result column="deviceBindStatus" property="deviceBindStatus"/>
+    </resultMap>
+
+    <select id="selectDeviceList"  resultType="cn.edu.chzu.smart.home.domain.DeviceInfo">
+
+        select * from facility_device_info
+    </select>
+</mapper>

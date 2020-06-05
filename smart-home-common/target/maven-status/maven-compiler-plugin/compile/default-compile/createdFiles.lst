@@ -1,0 +1,11 @@
+cn\edu\chzu\smart\home\domain\bedStatus\RoomMessages.class
+cn\edu\chzu\smart\home\domain\SuperEntity.class
+cn\edu\chzu\smart\home\SuperMapper.class
+cn\edu\chzu\smart\home\domain\auth\SysAuthority.class
+cn\edu\chzu\smart\home\domain\auth\SysRole.class
+cn\edu\chzu\smart\home\domain\bedStatus\PersonInformation.class
+cn\edu\chzu\smart\home\enums\ResultEnum.class
+cn\edu\chzu\smart\home\enums\RoleEnum.class
+cn\edu\chzu\smart\home\vo\ResultVO.class
+cn\edu\chzu\smart\home\MybatisPlusConfig.class
+cn\edu\chzu\smart\home\domain\auth\SysUser.class

@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "cn.edu.chzu.smart.home.properites.ServerSecurityProperties",
+      "name": "server-security",
+      "type": "cn.edu.chzu.smart.home.properites.ServerSecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "cn.edu.chzu.smart.home.properites.ServerSecurityProperties",
+      "name": "server-security.client-properties-list",
+      "type": "java.util.List<cn.edu.chzu.smart.home.properites.ClientProperties>"
+    }
+  ]
+}

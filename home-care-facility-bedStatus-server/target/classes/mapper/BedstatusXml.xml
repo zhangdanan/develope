@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.chzu.smart.home.dao.BedstatusDao">
+
+    <select id="BedSelect" resultMap="BedMap">
+            SELECT
+                  facility_bedInfo.roomNo,
+                  facility_bedInfo.roomType,
+                  facility_bedInfo.nursingType,
+                  facility_bedInfo.floorNo,
+                  facility_bedInfo.bedStatus,
+                  facility_bedInfo.bedNo,
+                  facility_user_eco_index_info.userTemper,
+                  facility_user_eco_index_info.gluDate,
+                  facility_user_eco_index_info.pressureDate,
+                  facility_user_eco_index_info.sleepDate,
+                  facility_user_eco_index_info.temperDate,
+                  facility_user_eco_index_info.userDbp,
+                  facility_user_eco_index_info.userGlu,
+                  facility_user_eco_index_info.userHr,
+                  facility_user_eco_index_info.userSbp,
+                  facility_user_eco_index_info.userSleep,
+                  facility_user_basic_info_tb.userName,
+                  facility_user_basic_info_tb.userAge
+            FROM
+                  facility_bedInfo
+            LEFT JOIN
+                  facility_user_eco_index_info
+            ON
+                  facility_bedInfo.fileNo = facility_user_eco_index_info.fileNo
+            LEFT JOIN
+                  facility_user_basic_info_tb
+            ON
+                  facility_user_eco_index_info.fileNo = facility_user_basic_info_tb.fileNo
+     </select>
+
+    <resultMap id="BedMap" type="cn.edu.chzu.smart.home.domain.bedStatus.RoomMessages">
+        <id column="floorNo" property="floorNo"/>
+        <id column="roomNo" property="roomNo"/>
+        <result column="buildNo" property="buildingNo"/>
+        <result column="nursingType" property="nursingType"/>
+        <result column="roomType" property="roomType"/>
+        <collection property="info" ofType="cn.edu.chzu.smart.home.domain.bedStatus.PersonInformation">
+            <id column="fileNo" property="fileNo"/>
+            <result column="bedNo" property="bedNo"/>
+            <result column="bedStatus" property="bedStatus"/>
+            <result column="userName" property="userName"/>
+            <result column="userAge" property="userAge"/>
+            <result column="userSleep" property="userSleep"/>
+            <result column="userSbp" property="userSbp"/>
+            <result column="userHr" property="userHr"/>
+            <result column="userGlu" property="userGlu"/>
+            <result column="userDbp" property="userDbp"/>
+            <result column="temperDate" property="temperDate"/>
+            <result column="sleepDate" property="sleepDate"/>
+            <result column="pressureDate" property="pressureDate"/>
+            <result column="gluDate" property="gluDate"/>
+        </collection>
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,36 @@
+spring:
+  application:
+  # 设置服务名
+    name: smart-home-zuul-gateway
+
+eureka:
+  client:
+    serviceUrl:
+    # 对应注册中心url
+      defaultZone: http://localhost:8761/eureka/
+
+
+server:
+  port: 9000
+
+zuul:
+  routes:
+    auth-server:
+      path: /auth-server/**
+      sensitiveHeaders:
+      serviceId: auth-server
+
+  add-proxy-headers: true
+
+
+
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:${server.port}/auth-server/oauth/token
+      user-authorization-uri: http://localhost:${server.port}/auth-server/oauth/authorize
+      client-id: webapp
+    resource:
+      user-info-uri: http://localhost:${server.port}/auth-server/user/current
+      prefer-token-info: false
+

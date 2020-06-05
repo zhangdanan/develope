@@ -1,0 +1,6 @@
+cn\edu\chzu\smart\home\service\BedstatusService.class
+cn\edu\chzu\smart\home\config\ResourceServerConfig.class
+cn\edu\chzu\smart\home\service\impl\BedstatusServiceImpl.class
+cn\edu\chzu\smart\home\controller\BedstatusController.class
+cn\edu\chzu\smart\home\RunServerApplication.class
+cn\edu\chzu\smart\home\dao\BedstatusDao.class

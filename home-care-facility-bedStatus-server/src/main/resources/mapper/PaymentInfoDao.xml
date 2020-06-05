@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.chzu.smart.home.dao.PaymentInfoDao">
+
+    <resultMap id="paymentInfo" type="cn.edu.chzu.smart.home.domain.PaymentInfo">
+        <id column="fileNo" property="fileNo"/>
+        <result column="paymentState" property="paymentState"></result>
+        <result column="monthPayMount" property="monthPayMount"></result>
+        <result column="accountBalance" property="accountBalance"></result>
+        <result column="dealUser" property="dealUser"/>
+
+        <association property="user" javaType="cn.edu.chzu.smart.home.domain.UserBasicInfo">
+            <id column="fileNo" property="fileNo"></id>
+            <result column="userName" property="userName"/>
+        </association>
+    </resultMap>
+
+    <select id="selectPaymentinfoList" resultType="cn.edu.chzu.smart.home.domain.PaymentInfo">
+        select * from facility_payment_basic_info,facility_user_basic_info_tb
+        where facility_payment_basic_info.fileNo=facility_user_basic_info_tb.fileNo
+    </select>
+
+</mapper>
